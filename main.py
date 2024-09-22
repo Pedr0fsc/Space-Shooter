@@ -14,7 +14,7 @@ class DraggableImage(DragBehavior, Image):
     pass
 
 class Game(Widget):
-    player = DraggableImage(source='x-wing.png')
+    player = DraggableImage(source='Imagens/x-wing.png')
     asteroids = []
     bullets = []
     vida = 5
@@ -41,7 +41,7 @@ class Game(Widget):
 
         for i in range(self.vida):
             coracao = Image(
-                source='heart.png',
+                source='Imagens/heart.png',
                 x=40 * i,
                 y=80
             )
@@ -55,7 +55,7 @@ class Game(Widget):
 
         # Criação de asteroides
         if len(self.asteroids) < 4:
-            naves = ['T-Interceptor.png', 'T-bomber.png', 'T-Fighter.png']
+            naves = ['Imagens/asteroid_1.png', 'Imagens/asteroid_2.png']
             asteroid = Image(source=naves[ random.randrange(0, len(naves)) ])
             self.add_widget(asteroid)
             asteroid.x = self.width * 0.8 * random.random()
@@ -107,13 +107,13 @@ class Game(Widget):
 
     def on_touch_down(self, touch):
         if touch.button == 'left':
-            bullet = Image(source='Laser-bullet.png')
+            bullet = Image(source='Imagens/Laser-bullet.png')
             bullet.center_x = self.player.center_x
             bullet.top = self.player.top
             self.bullets.append(bullet)
             self.add_widget(bullet)
         if touch.button == 'right':
-            plasma = Image(source='Plasma-bullet.png')
+            plasma = Image(source='Imagens/Plasma-bullet.png')
             plasma.center_x = self.player.center_x
             plasma.top = self.player.top
             self.bullets.append(plasma)
